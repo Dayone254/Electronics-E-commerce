@@ -9,10 +9,13 @@ import { SortDropdown } from "@/components/sort-dropdown"
 import { Button } from "@/components/ui/button"
 import { Filter, Grid, List, Monitor, Cpu, HardDrive } from "lucide-react"
 import { useState } from "react"
+import { electronicsInventory } from "@/lib/electronics-inventory";
 
 export default function DesktopsPage() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [showMobileFilters, setShowMobileFilters] = useState(false)
+
+  const desktopProducts = electronicsInventory.filter((product) => product.category === "desktops");
 
   return (
     <FilterProvider initialCategory="desktops">
@@ -110,7 +113,7 @@ export default function DesktopsPage() {
               <ActiveFilters />
 
               {/* Products Grid */}
-              <UniversalProductGrid viewMode={viewMode} />
+              <UniversalProductGrid products={desktopProducts} viewMode={viewMode} />
             </div>
           </div>
         </div>
