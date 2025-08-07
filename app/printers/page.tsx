@@ -9,10 +9,13 @@ import { SortDropdown } from "@/components/sort-dropdown"
 import { Button } from "@/components/ui/button"
 import { Filter, Grid, List, Printer, Wifi, Zap } from "lucide-react"
 import { useState } from "react"
+import { electronicsInventory } from "@/lib/electronics-inventory";
 
 export default function PrintersPage() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [showMobileFilters, setShowMobileFilters] = useState(false)
+
+  const printerProducts = electronicsInventory.filter((product) => product.category === "printers");
 
   return (
     <FilterProvider initialCategory="printers">
@@ -110,7 +113,7 @@ export default function PrintersPage() {
               <ActiveFilters />
 
               {/* Products Grid */}
-              <UniversalProductGrid viewMode={viewMode} />
+              <UniversalProductGrid products={printerProducts} viewMode={viewMode} />
             </div>
           </div>
         </div>
