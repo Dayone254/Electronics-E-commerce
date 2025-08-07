@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description:
     "Your one-stop shop for premium electronics. Laptops, smartphones, TVs, desktops, printers and accessories. Free shipping, warranty, and expert support.",
   keywords: "electronics, laptops, phones, TVs, desktops, printers, accessories, Kenya, Nairobi",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
